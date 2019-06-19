@@ -1,4 +1,3 @@
-<script type="text/javascript">
   var canvas = document.getElementById("myCanvas");
   var ctx = canvas.getContext("2d");
   var ballRadius = 10;
@@ -164,4 +163,3 @@
   }
 
   draw();
-  </script>
