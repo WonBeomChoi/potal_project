@@ -16,7 +16,7 @@ public class ScoreBoard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="user_id")
     private User user;
 
