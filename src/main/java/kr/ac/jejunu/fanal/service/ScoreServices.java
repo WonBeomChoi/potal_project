@@ -3,9 +3,8 @@ package kr.ac.jejunu.fanal.service;
 import kr.ac.jejunu.fanal.model.ScoreBoard;
 import kr.ac.jejunu.fanal.repository.ScoreBoardRepository;
 import kr.ac.jejunu.fanal.repository.UserRepository;
-import kr.ac.jejunu.fanal.vo.ScoreBoardPayLoad;
+import kr.ac.jejunu.fanal.vo.ScoreBoardVO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,10 +16,10 @@ public class ScoreServices {
     private final UserRepository userRepository;
     private final ScoreBoardRepository scoreBoardRepository;
 
-    public ScoreBoard add_score(ScoreBoardPayLoad scoreBoardPayLoad) throws IllegalAccessException {
+    public ScoreBoard add_score(ScoreBoardVO scoreBoardVO) throws IllegalAccessException {
         ScoreBoard scoreBoard = ScoreBoard.builder()
-                .score(scoreBoardPayLoad.getScore())
-                .user(userRepository.findById(scoreBoardPayLoad.getUser_id()).orElseThrow(IllegalAccessException::new))
+                .score(scoreBoardVO.getScore())
+                .user(userRepository.findById(scoreBoardVO.getUser_id()).orElseThrow(IllegalAccessException::new))
                 .build();
         return scoreBoardRepository.save(scoreBoard);
     }
